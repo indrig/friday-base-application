@@ -1,6 +1,6 @@
 {
-  "name": "vendor_name/package_name",
-  "description": "description_text",
+  "name": "indrig/friday",
+  "description": "Friday async php framework base application",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
