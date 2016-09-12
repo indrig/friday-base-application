@@ -1,8 +1,9 @@
 {
-  "name": "indrig/friday",
+  "name": "indrig/friday-base-application",
   "description": "Friday async php framework base application",
-  "minimum-stability": "stable",
-  "license": "proprietary",
+  "minimum-stability": "dev",
+  "license": "BSD-3-Clause",
+  "prefer-stable" : true,
   "authors": [
     {
       "name": "author's name",
@@ -10,6 +11,12 @@
     }
   ],
   "require": {
-
-  }
+    "indrig/friday": "dev-master"
+  },
+  "repositories": [
+    {
+      "url": "https://github.com/indrig/friday.git",
+      "type": "git"
+    }
+  ]
 }
