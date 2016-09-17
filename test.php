@@ -6,7 +6,10 @@
  * Time: 12:00
  */
 error_reporting(E_ALL);
+define('FRIDAY_DEBUG', true);
+
 require_once __DIR__ . '/vendor/indrig/friday/Friday.php';
+
 
 $application = new \Friday\Web\Application([
     'id' => 'Test Application',
