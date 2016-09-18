@@ -8,22 +8,31 @@
 error_reporting(E_ALL);
 define('FRIDAY_DEBUG', true);
 
-require_once __DIR__ . '/vendor/indrig/friday/Friday.php';
+require_once __DIR__ . '/vendor/indrig/friday/src/Friday.php';
 
 
 $application = new \Friday\Web\Application([
     'id' => 'Test Application',
     'basePath' => __DIR__,
+    'bootstrap' => ['log'],
     'components' => [
         'urlManager' => [
             'rules'               => [
-                '/'                                                                                 => '/admin/index/index',
-                //Авторизация
-                '/login'                                                                            => '/admin/auth/login',
-                '/logout'                                                                           => '/admin/auth/logout',
-                '/test/<ss>'                                                                           => '/admin/auth/<ss>',
+                '/'  => '/index/index',
             ]
-        ]
+        ],
+        'log' => [
+              'targets' => [
+                  'file' => [
+                      'class' => 'Friday\Log\FileTarget',
+                      'levels' => ['trace', 'info'],
+                  ],
+                  'console' => [
+                      'class' => 'Friday\Log\ConsoleTarget',
+                      'levels' => ['error', 'warning', 'trace', 'info', 'profile'],
+                  ],
+              ],
+          ],
     ]
 ]);
 $application->run();
