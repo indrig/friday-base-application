@@ -1,16 +1,16 @@
 <?php
 namespace Application\Controller;
 
+use Friday\Promise\Deferred;
 use Friday\Web\Controller;
 
 class IndexController extends Controller{
     public function actionIndex(){
-        try {
-            \Friday::error('test');
 
-        }catch (\Throwable $T){
-            echo  $T;
-        }
-        return $this->render('index');
+        $deferred = new Deferred();
+        $this->connectionContext->post(function () use($deferred){
+            $deferred->resolve($this->render('index'));
+        });
+        return $deferred->promise();
     }
 }

@@ -1,0 +1,26 @@
+<?php
+/**
+ * @var \Friday\Web\View $this
+ * @var string $content
+ */
+use Friday\Helper\Html;
+
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Friday::$app->language ?>">
+<head>
+    <meta charset="<?= Friday::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+</head>
+<body>
+    <?php $this->beginBody() ?>
+
+    <?= $content ?>
+    <?php $this->endBody() ?>
+</body>
+</html>
+<?php $this->endPage() ?>
