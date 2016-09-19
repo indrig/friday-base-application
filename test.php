@@ -22,7 +22,7 @@ $application = new \Friday\Web\Application([
             ]
         ],
         'cache' => [
-            'class' => 'Friday\Cache\ArrayCache'
+            'class' => 'Friday\Cache\FileCache'
         ],
         'log' => [
               'targets' => [
