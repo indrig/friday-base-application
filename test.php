@@ -21,6 +21,9 @@ $application = new \Friday\Web\Application([
                 '/'  => '/index/index',
             ]
         ],
+        'cache' => [
+            'class' => 'Friday\Cache\ArrayCache'
+        ],
         'log' => [
               'targets' => [
                   'file' => [
