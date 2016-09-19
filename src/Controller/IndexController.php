@@ -20,4 +20,9 @@ class IndexController extends Controller{
         });
         return $deferred->promise();
     }
+
+    function __destruct()
+    {
+       var_dump(__CLASS__ .'::__destruct');
+    }
 }
