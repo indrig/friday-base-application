@@ -35,7 +35,14 @@ $application = new \Friday\Web\Application([
                       'levels' => ['error', 'warning', 'trace', 'info', 'profile'],
                   ],
               ],
-          ],
+        ],
+        'db' => [
+            'class' => 'Friday\Db\Adapter',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'test',
+
+        ]
     ]
 ]);
 $application->run();
