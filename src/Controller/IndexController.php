@@ -10,10 +10,11 @@ class IndexController extends Controller{
 
 
         $deferred = new Friday\Base\Deferred();
-        Friday::$app->getDb()->createCommand("SELECT * FROM test WHERE id=:id", ['id' => 10])->execute()->await(function ($result) use($deferred){
+        Friday::$app->getDb()->createCommand("SELECT * FROM test")->queryColumn()->await(function ($result) use($deferred){
             if($result instanceof \Throwable) {
                 $deferred->exception($result);
             } else {
+                var_dump($result);
                 $deferred->result($this->render('index'));
 
             }
