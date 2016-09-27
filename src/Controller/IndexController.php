@@ -1,6 +1,7 @@
 <?php
 namespace Application\Controller;
 
+use Application\Model\User;
 use Friday;
 use Friday\Base\Awaitable;
 use Friday\Web\Controller;
@@ -10,15 +11,21 @@ class IndexController extends Controller{
 
 
         $deferred = new Friday\Base\Deferred();
-        Friday::$app->getDb()->createCommand("SELECT * FROM test")->queryColumn()->await(function ($result) use($deferred){
-            if($result instanceof \Throwable) {
-                $deferred->exception($result);
+        $user =new User([
+            'created_at' => time(),
+            'updated_at' => time(),
+        ]);
+        $user->save()->await(function ($userSaveResult) use ($deferred, $user){
+            if($userSaveResult instanceof \Throwable){
+
+                $deferred->exception($userSaveResult);
             } else {
-                var_dump($result);
                 $deferred->result($this->render('index'));
 
             }
+
         });
+
 
         return $deferred->awaitable();
     }
