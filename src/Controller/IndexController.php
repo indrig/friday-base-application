@@ -15,6 +15,16 @@ class IndexController extends Controller{
             'created_at' => time(),
             'updated_at' => time(),
         ]);
+        User::findOne(10)->await(function ($result) use ($deferred) {
+            if($result instanceof \Throwable){
+
+                $deferred->exception($result);
+            } else {
+                $deferred->result($this->render('index'));
+
+            }
+        });
+        /*
         $user->save()->await(function ($userSaveResult) use ($deferred, $user){
             if($userSaveResult instanceof \Throwable){
 
@@ -25,7 +35,7 @@ class IndexController extends Controller{
             }
 
         });
-
+*/
 
         return $deferred->awaitable();
     }

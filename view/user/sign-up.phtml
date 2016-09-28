@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var \Application\Form\UserSignUpForm $model
+ */
+use Friday\Widget\ActiveForm;
+
+?>
+<?php $from = ActiveForm::begin();?>
+<?=$from->field($model,'email') ?>
+<?=$from->field($model,'password') ?>
+<?php ActiveForm::end()?>

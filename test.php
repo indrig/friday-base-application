@@ -19,6 +19,7 @@ $application = new \Friday\Web\Application([
         'urlManager' => [
             'rules'               => [
                 '/'  => '/index/index',
+                '/join'  => '/user/sign-up',
             ]
         ],
         'cache' => [
