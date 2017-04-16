@@ -1,4 +1,6 @@
 <?php
+define('FRIDAY_DEBUG', true);
+
 require(__DIR__ . '/vendor/autoload.php');
 require(__DIR__ . '/vendor/indrig/friday/src/Friday.php');
 
