@@ -11,31 +11,9 @@ class IndexController extends Controller{
 
 
         $deferred = new Friday\Base\Deferred();
-        $user =new User([
-            'created_at' => time(),
-            'updated_at' => time(),
-        ]);
-        User::findOne(10)->await(function ($result) use ($deferred) {
-            if($result instanceof \Throwable){
 
-                $deferred->exception($result);
-            } else {
                 $deferred->result($this->render('index'));
 
-            }
-        });
-        /*
-        $user->save()->await(function ($userSaveResult) use ($deferred, $user){
-            if($userSaveResult instanceof \Throwable){
-
-                $deferred->exception($userSaveResult);
-            } else {
-                $deferred->result($this->render('index'));
-
-            }
-
-        });
-*/
 
         return $deferred->awaitable();
     }

@@ -8,6 +8,7 @@
 error_reporting(E_ALL);
 define('FRIDAY_DEBUG', true);
 
+require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/vendor/indrig/friday/src/Friday.php';
 
 

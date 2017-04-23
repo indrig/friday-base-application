@@ -3,6 +3,8 @@
  * @var \Friday\Web\View $this
  * @var string $content
  */
+use Friday\Bootstrap\Widget\Nav;
+use Friday\Bootstrap\Widget\NavBar;
 use Friday\Helper\Html;
 
 ?>
@@ -19,6 +21,31 @@ use Friday\Helper\Html;
 <body>
     <?php $this->beginBody() ?>
 
+    <?php
+    NavBar::begin(['brandLabel' => 'Friday',
+        'items' => [
+            [
+                'label' => 'Home',
+                'url' => ['/site/index'],
+            ],
+            [
+                'label' => 'Dropdown',
+                'items' => [
+                    ['label' => 'Level 1 - Dropdown A', 'url' => '#'],
+                    ['label' => 'Dropdown Header'],
+                    null,
+                    ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
+                ],
+            ],
+            [
+                'label' => 'Login',
+                'url' => ['site/login'],
+                //'visible' => Friday::$app->user->isGuest
+            ],
+        ],
+        ]);
+
+    NavBar::end()?>
     <?= $content ?>
     <?php $this->endBody() ?>
 </body>

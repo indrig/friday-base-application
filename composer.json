@@ -3,19 +3,24 @@
   "description": "Friday async php framework base application",
   "minimum-stability": "dev",
   "license": "BSD-3-Clause",
-  "prefer-stable" : true,
+  "prefer-stable": true,
   "authors": [
     {
-      "name": "author's name",
+      "name": "Indrig",
       "email": "email@example.com"
     }
   ],
   "require": {
-    "indrig/friday": "dev-master"
+    "indrig/friday": "dev-master",
+    "indrig/friday-bootstrap": "dev-master"
   },
   "repositories": [
     {
       "url": "https://github.com/indrig/friday.git",
+      "type": "git"
+    },
+    {
+      "url": "https://github.com/indrig/friday-bootstrap.git",
       "type": "git"
     }
   ]
