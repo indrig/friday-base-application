@@ -11,8 +11,7 @@ class IndexController extends Controller{
 
 
         $deferred = new Friday\Base\Deferred();
-
-                $deferred->result($this->render('index'));
+        $deferred->result($this->render('index'));
 
 
         return $deferred->awaitable();

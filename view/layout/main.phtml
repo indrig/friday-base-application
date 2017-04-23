@@ -21,12 +21,11 @@ use Friday\Helper\Html;
 <body>
     <?php $this->beginBody() ?>
 
-    <?php
-    NavBar::begin(['brandLabel' => 'Friday',
+    <?= NavBar::widget(['brandLabel' => 'Friday',
         'items' => [
             [
-                'label' => 'Home',
-                'url' => ['/site/index'],
+                'label' => Friday::t('app', 'Home'),
+                'url' => ['/index/index'],
             ],
             [
                 'label' => 'Dropdown',
@@ -35,7 +34,7 @@ use Friday\Helper\Html;
                     ['label' => 'Dropdown Header'],
                     null,
                     ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
-                ],
+                ]
             ],
             [
                 'label' => 'Login',
@@ -43,9 +42,13 @@ use Friday\Helper\Html;
                 //'visible' => Friday::$app->user->isGuest
             ],
         ],
-        ]);
+        'afterItems' => Html::a(Friday::t('app', 'Sign In'), '#signin',
+            [
+                'class' => 'btn btn-outline-success my-2 my-sm-0',
+            ]
+        )
 
-    NavBar::end()?>
+    ])?>
     <?= $content ?>
     <?php $this->endBody() ?>
 </body>
